@@ -3,12 +3,13 @@ import { BuilderComponent, builder, useIsPreviewing } from "@builder.io/react";
 import "../builder-registry";
 
 // Builder Public API Key set in .env file
-builder.init(import.meta.env.VITE_PUBLIC_BUILDER_KEY);
 
 export default function BuilderPage() {
   const isPreviewingInBuilder = useIsPreviewing();
   const [notFound, setNotFound] = React.useState(false);
   const [content, setContent] = React.useState(null);
+
+builder.init(import.meta.env.VITE_PUBLIC_BUILDER_KEY);
 
   // get the page content from Builder
   React.useEffect(() => {
